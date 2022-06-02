@@ -14,7 +14,12 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
   },
   "include": ["./src/**/*"]
 }

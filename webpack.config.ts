@@ -1,25 +1,19 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+import { resolve, join } from "path";
+import { Configuration } from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
-const config = {
+const config: Configuration = {
   entry: {
     app: ["./src/index.tsx"],
   },
   output: {
     filename: "bundle/[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    // library: "[name]",
-    // libraryTarget: "umd",
+    path: resolve(__dirname, "dist"),
     assetModuleFilename: "files/[name].[ext]",
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        use: "babel-loader",
-        exclude: /node_modules/,
-      },
       {
         test: /(d)?\.ts(x)?$/,
         loader: "ts-loader",
@@ -30,7 +24,7 @@ const config = {
         use: "js-yaml-loader",
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.s(a|c)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "less-loader"],
       },
       {
@@ -71,17 +65,11 @@ const config = {
     }),
   ],
   resolveLoader: {
-    modules: [
-      "node_modules",
-      path.join(process.env.NPM_CONFIG_PREFIX || __dirname, "lib/node_modules"),
-    ],
+    modules: ["node_modules", join(process.env.NPM_CONFIG_PREFIX || __dirname, "lib/node_modules")],
   },
   resolve: {
-    modules: [
-      "node_modules",
-      path.join(process.env.NPM_CONFIG_PREFIX || __dirname, "lib/node_modules"),
-    ],
-    extensions: [".js", ".ts", ".jsx", ".tsx"],
+    modules: ["node_modules", join(process.env.NPM_CONFIG_PREFIX || __dirname, "lib/node_modules")],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".sass"],
   },
 };
 

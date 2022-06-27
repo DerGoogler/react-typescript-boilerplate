@@ -1,3 +1,14 @@
+.cache/
+coverage/
+dist/*
+!dist/index.html
+!vscode/settings.json
+package_lock.json
+node_modules/
+cdn_modules/
+*.log
+
+# OS generated files
 /node_modules
 /test/js
 /test/browsertest/js

@@ -3,8 +3,8 @@ NODE_BIN = ./node_modules/.bin
 install:
 	npm install --force
 
-dev: licenses
+dev:
 	${NODE_BIN}/webpack --mode=development
 
-prod: licenses
+prod:
 	${NODE_BIN}/webpack --mode=production

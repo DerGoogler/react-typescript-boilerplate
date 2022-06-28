@@ -24,8 +24,8 @@ const config: Configuration = {
         use: "js-yaml-loader",
       },
       {
-        test: /\.s(a|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "less-loader"],
+        test: /\.(scss|css)$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
@@ -69,7 +69,7 @@ const config: Configuration = {
   },
   resolve: {
     modules: ["node_modules", join(process.env.NPM_CONFIG_PREFIX || __dirname, "lib/node_modules")],
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".sass"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".sass", "css"],
   },
 };
 

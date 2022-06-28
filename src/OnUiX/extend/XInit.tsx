@@ -22,7 +22,7 @@ interface States {
 }
 
 /**
- * Initializes the component for GooglerX DOM
+ * Initializes the component for OnUiX DOM
  */
 export default class extends Component<XInitProps, States> {
   public constructor(props: XInitProps | Readonly<XInitProps>) {

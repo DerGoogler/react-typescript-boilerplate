@@ -3,15 +3,19 @@ import { Configuration } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
-const config: Configuration = {
-  entry: {
-    app: ["./src/index.tsx"],
-  },
+const defConfig: Configuration = {
   output: {
     filename: "bundle/[name].bundle.js",
     path: resolve(__dirname, "dist"),
     assetModuleFilename: "files/[name].[ext]",
   },
+};
+
+const config: Configuration = {
+  entry: {
+    app: ["./src/index.tsx"],
+  },
+  ...defConfig,
   module: {
     rules: [
       {
@@ -73,4 +77,4 @@ const config: Configuration = {
   },
 };
 
-module.exports = config;
+export { config, defConfig };

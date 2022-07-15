@@ -1,9 +1,8 @@
-import App from "./App";
-import UiXTheme from "./OnUiX/theme/UiXTheme";
+import { createRoot } from "react-dom/client";
+import { App } from "./App";
 
-// Styles
-import "./styles/default.scss";
-import "onsenui/css/onsenui-core.css";
-import render from "./OnUiX/utils/render";
-
-render<HTMLElement>(App, UiXTheme());
+const app = document.createElement("app");
+document.body.prepend(app);
+const container = document.querySelector<Element>("app");
+const root = createRoot(container!);
+root.render(<App />);
